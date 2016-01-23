@@ -45,7 +45,7 @@ public class Presentation {
     drawRect((i+2) % 3, black);
   }
 
-  void drawRect(int x, int y, int w, int h, String l1, String l2, color c ) {
+  void drawRect(int x, int y, int w, int h, String l1, String l2, color c) {
     g.stroke(c);
     g.line(x,y,x,y + h);
     g.line(x,y,x + w,y);
