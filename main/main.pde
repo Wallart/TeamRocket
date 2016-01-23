@@ -34,7 +34,7 @@ void draw() {
   detector.draw();
 }
 
-void foo(int movement) {
+void transmitMovement(int movement) {
   manager.manageScreens(movement);
   System.out.println(manager.currentScreen + "  "+ manager.currentCategory + "  "+ manager.currentArticle);
 }

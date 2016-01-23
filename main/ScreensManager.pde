@@ -23,8 +23,8 @@ class ScreensManager {
     
    public ScreensManager(){
       currentScreen = "MAIN_SCREEN";
-      currentCategory = "POLITIQUE";
-      currentArticle = 1;
+      currentCategory = "None";
+      currentArticle = -1;
     }
     
     
@@ -66,6 +66,7 @@ class ScreensManager {
                 
                 case FORWARD_MOVEMENT:
                     currentScreen = "LIST_CATEGORY";
+                    currentArticle = -1;
                     break;
                 
                 default:
