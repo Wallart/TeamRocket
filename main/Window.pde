@@ -6,6 +6,11 @@ class Window extends PApplet {
   Presentation presentation = new Presentation(800, 800);
   ArticlePrinter article;
   
+  int state = 0;
+  
+  
+  
+  
   Window(int w, int h) {
     width = w;
     height = h;
@@ -17,20 +22,20 @@ class Window extends PApplet {
  
   void draw() {
     background(255);
-    drawCategories();
+    switch(state){
+      case 0:
+        presentation.draw(g);
+        break;
+      case 1:
+        categories.draw(g);
+        break;
+      case 2:
+            article.draw(g);
+    }
   }
   
-  void drawCategories() {
-    categories.draw(this.g);
-  }
-  
-  void drawMainScreen() {
-    presentation.draw(g);
-  }
-  
-  void drawArticle(String rubrik) {
-    article = new ArticlePrinter(800, 800, rubrik);
-    article.draw(g);
+  void setState(int i) {
+    this.state = i;
   }
   
   ArticlePrinter getArticle(){

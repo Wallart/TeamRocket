@@ -33,7 +33,6 @@ void draw() {
   background(255);
   fill(0);
   detector.draw();
-  window.draw();
 }
 void transmitMovement(int movement) {
   manager.manageScreens(movement);

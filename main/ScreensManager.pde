@@ -26,30 +26,35 @@ class ScreensManager {
     
     
     void manageScreens(int movementDetected) {
+      println(currentScreen);
       switch(currentScreen) {
         case "MAIN_SCREEN":  
-              window.drawMainScreen();
                   switch(movementDetected) {
                      case UP_MOVEMENT:
                            currentScreen = "LIST_CATEGORY";
                            currentCategory = "POLITIQUE";
+                           window.setState(1);
                            //Display the category screen with POLITIQUE selected here
                            
                            break;
                       case DOWN_MOVEMENT:
-                           currentScreen = "TUTOS";
+                           currentScreen = "MAIN_SCREEN";
                            selected = 1;
                            //Display the tutos screen
                            break;
                        case LEFT_MOVEMENT:
-                           currentScreen = "TUTOS";
+                       println("left");
+                           currentScreen = "MAIN_SCREEN";
                            selected = selected + 1;
+                           if (selected == 3)
+                             selected = 1;
+                             println(selected);
                            window.getPresentation().setSelected(selected);
                        case RIGHT_MOVEMENT:
-                           currentScreen = "TUTOS";
+                           currentScreen = "MAIN_SCREEN";
                            selected = selected - 1 ;
-                           if (selected > 1)
-                           selected = 1;
+                           if (selected < 1)
+                             selected = 3;
                            window.getPresentation().setSelected(selected);
                        default:
                            //do nothing
@@ -57,12 +62,10 @@ class ScreensManager {
         break;
         
         case "LIST_CATEGORY":
-              window.drawCategories();
               categoriesManager(movementDetected);
         break;
         
         case "ARTICLES":  
-              window.drawArticle(currentCategory);
               switch(movementDetected) {
                 case UP_MOVEMENT:
                         window.getArticle().up();
@@ -75,6 +78,7 @@ class ScreensManager {
                 case FORWARD_MOVEMENT:
                     currentScreen = "LIST_CATEGORY";
                     currentArticle = -1;
+                    window.setState(2);
                     break;
                 
                 default:
@@ -102,6 +106,8 @@ class ScreensManager {
           case FORWARD_MOVEMENT:
             currentArticle = 1; //set first article as the displayed one (of the category POLITIQUE)
             currentScreen = "ARTICLES";
+            window.getArticle().setRubrik(currentCategory);
+            window.setState(3);
             break;
         }
       }  

@@ -21,6 +21,7 @@ public class Presentation {
   }
 
   void draw(PGraphics g) {
+    println("presentation:" + selected);
     this.g = g;
     g.background(255);
 
@@ -33,20 +34,34 @@ public class Presentation {
     g.text("OU LEVEZ LE BRAS AU DESSUS", width/2,120); 
     g.text("DE LA TÊTE", width/2,160); 
     g.text("POUR MASQUER LE TUTORIAL", width/2,200); 
+    
+    int a = 2, b = 3;
   
-    drawRect(1, blue, 5);
-    drawRect(2, black, 2);
-    drawRect(3, black, 2);
-
+    switch(selected) {
+      case 1:
+        a = 2;
+        b = 3;
+        break;
+      case 2:
+        a = 1; 
+        b = 3;
+        break;
+      case 3:
+        a = 1;
+        b = 2;
+        break;
+    }
+    drawRect(selected, blue, 5);
+    drawRect(a, white, 5);
+    drawRect(b, white, 5);
+    
+    drawRect(a, black, 2);
+    drawRect(b, black, 2);
   }
 
   void setSelected(int i) {
-    drawRect(i, blue, 5);
-    drawRect(((i+1) % 3), white, 5);
-    drawRect(((i+2) % 3), white, 5);
-    
-    drawRect(((i+1) % 3), black, 2);
-    drawRect(((i+2) % 3), black, 2);
+    this.selected = i;
+    println("set selected: " +selected);
   }
 
   void drawRect(int x, int y, int w, int h, String l1, String l2, color c, int size) {

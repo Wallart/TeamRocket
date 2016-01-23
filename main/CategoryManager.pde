@@ -9,7 +9,7 @@ class CategoryManager {
   
   String[][] names = {{"SCIENCES", "POLITIQUE", "ECONOMIE"}, {"CULTURE", "INTERNATIONAL", "SPORTS"}};  
   
-  int currentState;
+  int currentState = 1;
   
   CategoryManager(){
     currentState = 1;
@@ -33,7 +33,7 @@ class CategoryManager {
     drawRect(5, black);
     drawRect(6, black);
     
-    setSelected(currentState);
+    drawRect(currentState, red);
   }
   
   void drawRect(int x, int y, int w, int h, String l1, String l2, color c) {
@@ -79,15 +79,6 @@ class CategoryManager {
   
   void setSelected(int i) {
     currentState = i;
-    drawRect(1, black);
-    drawRect(2, black);
-    drawRect(3, black);
-    
-    drawRect(4, black);
-    drawRect(5, black);
-    drawRect(6, black);
-    
-    drawRect(i, red);
     System.out.println("selected "+i);
   }
   
