@@ -29,11 +29,10 @@ void settings() {
 }
 
 void draw() {
-  
   background(255);
   detector.draw();
+  window.draw();
 }
-
 void transmitMovement(int movement) {
   manager.manageScreens(movement);
   System.out.println(manager.currentScreen + "  "+ manager.currentCategory + "  "+ manager.currentArticle);
