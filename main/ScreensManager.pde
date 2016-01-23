@@ -78,7 +78,7 @@ class ScreensManager {
                 case FORWARD_MOVEMENT:
                     currentScreen = "LIST_CATEGORY";
                     currentArticle = -1;
-                    window.setState(2);
+                    window.setState(1);
                     break;
                 
                 default:

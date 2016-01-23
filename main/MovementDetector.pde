@@ -64,13 +64,11 @@ class MovementDetector {
     noStroke();
     ellipse(v2.x, v2.y, 20, 20);
   
-    //int movement = onMoveIn(v2.x, v2.y);
-    //showMovement(movement);
-    
-  
-  
-    int movement = onMoveIn(mouseX, mouseY);
+    int movement = onMoveIn(v2.x, v2.y);
     showMovement(movement);
+    
+    //int movement = onMoveIn(mouseX, mouseY);
+    //showMovement(movement);
     
     transmitMovement(movement);
   
