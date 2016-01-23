@@ -28,7 +28,7 @@ void settings() {
 }
 
 void draw() {
-  
   background(255);
   detector.draw();
+  window.draw();
 }
