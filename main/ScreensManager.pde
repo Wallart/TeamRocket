@@ -10,10 +10,13 @@ class ScreensManager {
     static final String MAIN_SCREEN = "MAIN_SCREEN";
     static final String LIST_CATEGORY = "LIST_CATEGORY";
     static final String ARTICLES = "ARTICLES";
+    static final String TUTOS = "TUTOS";
     
     String currentScreen;
     String currentCategory;
     int currentArticle;
+    
+    int selected = 1;
     
    public ScreensManager(){
       currentScreen = "MAIN_SCREEN";
@@ -25,6 +28,7 @@ class ScreensManager {
     void manageScreens(int movementDetected) {
       switch(currentScreen) {
         case "MAIN_SCREEN":  
+              window.drawMainScreen();
                   switch(movementDetected) {
                      case UP_MOVEMENT:
                            currentScreen = "LIST_CATEGORY";
@@ -33,10 +37,20 @@ class ScreensManager {
                            
                            break;
                       case DOWN_MOVEMENT:
-                           //currentScreen = "TUTOS";
+                           currentScreen = "TUTOS";
+                           selected = 1;
                            //Display the tutos screen
-                           
                            break;
+                       case LEFT_MOVEMENT:
+                           currentScreen = "TUTOS";
+                           selected = selected + 1;
+                           window.getPresentation().setSelected(selected);
+                       case RIGHT_MOVEMENT:
+                           currentScreen = "TUTOS";
+                           selected = selected - 1 ;
+                           if (selected > 1)
+                           selected = 1;
+                           window.getPresentation().setSelected(selected);
                        default:
                            //do nothing
                }   

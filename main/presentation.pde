@@ -29,7 +29,7 @@ public class Presentation {
 
     g.textAlign(CENTER);
     g.text("FAÎTES UN MOUVEMENT DE HAUT EN BAS", width/2,40); 
-    g.text("POUR VOIR SUIVRE LE TOTURIAL", width/2,80); 
+    g.text("POUR SUIVRE LE TOTURIAL", width/2,80); 
     g.text("OU LEVEZ LE BRAS AU DESSUS", width/2,120); 
     g.text("DE LA TÊTE", width/2,160); 
     g.text("POUR MASQUER LE TUTORIAL", width/2,200); 
