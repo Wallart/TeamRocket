@@ -61,17 +61,16 @@ class ScreensManager {
               categoriesManager(movementDetected);
         break;
         
-        case "ARTICLES":      
+        case "ARTICLES":  
+              window.drawArticle(currentCategory);
               switch(movementDetected) {
                 case UP_MOVEMENT:
-                        //Scroll Up
-                      
-                break;
+                        window.getArticle().up();
+                        break;
                 
                 case DOWN_MOVEMENT:
-                      //Scroll down
-                      
-                break;
+                        window.getArticle().down();      
+                        break;
                 
                 case FORWARD_MOVEMENT:
                     currentScreen = "LIST_CATEGORY";

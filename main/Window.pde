@@ -4,6 +4,7 @@ class Window extends PApplet {
   
   CategoryManager categories = new CategoryManager();
   Presentation presentation = new Presentation(800, 800);
+  ArticlePrinter article;
   
   Window(int w, int h) {
     width = w;
@@ -25,6 +26,15 @@ class Window extends PApplet {
   
   void drawMainScreen() {
     presentation.draw(g);
+  }
+  
+  void drawArticle(String rubrik) {
+    article = new ArticlePrinter(800, 800, rubrik);
+    article.draw(g);
+  }
+  
+  ArticlePrinter getArticle(){
+    return this.article;
   }
   
   Presentation getPresentation() {
