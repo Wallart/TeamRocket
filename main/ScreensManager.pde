@@ -42,7 +42,7 @@ class ScreensManager {
                            selected = 1;
                            //Display the tutos screen
                            break;
-                       case LEFT_MOVEMENT:
+                       case RIGHT_MOVEMENT:
                        println("left");
                            currentScreen = "MAIN_SCREEN";
                            selected = selected + 1;
@@ -50,7 +50,7 @@ class ScreensManager {
                              selected = 1;
                              println(selected);
                            window.getPresentation().setSelected(selected);
-                       case RIGHT_MOVEMENT:
+                       case LEFT_MOVEMENT:
                            currentScreen = "MAIN_SCREEN";
                            selected = selected - 1 ;
                            if (selected < 1)
