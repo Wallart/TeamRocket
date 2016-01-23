@@ -32,7 +32,7 @@ class ScreensManager {
                   switch(movementDetected) {
                      case UP_MOVEMENT:
                            currentScreen = "LIST_CATEGORY";
-                           currentCategory = "POLITIQUE";
+                           currentCategory = window.getCategories().getStateName();
                            window.setState(1);
                            //Display the category screen with POLITIQUE selected here
                            
@@ -93,15 +93,19 @@ class ScreensManager {
         switch(movementDetected) {
           case UP_MOVEMENT:
             window.getCategories().up();
+            currentCategory = window.getCategories().getStateName();
             break;
           case DOWN_MOVEMENT:
             window.getCategories().down();
+            currentCategory = window.getCategories().getStateName();
             break;
           case RIGHT_MOVEMENT:
             window.getCategories().right();
+            currentCategory = window.getCategories().getStateName();
             break;
           case LEFT_MOVEMENT:
             window.getCategories().left();
+            currentCategory = window.getCategories().getStateName();
             break;
           case FORWARD_MOVEMENT:
             currentArticle = 1; //set first article as the displayed one (of the category POLITIQUE)

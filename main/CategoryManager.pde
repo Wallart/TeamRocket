@@ -16,6 +16,12 @@ class CategoryManager {
     f = createFont("Arial", 35, true); 
   }
   
+  String getStateName(){
+    int i = (currentState < 4) ? 0 : 1;
+    int j = (currentState < 4) ? (currentState-1) : (currentState-1)%3; 
+    return names[i][j];
+  }
+  
   void draw(PGraphics g) {
     this.g = g; 
     
