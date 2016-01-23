@@ -5,38 +5,63 @@ class ArticlePrinter {
   int h;
   String rubrik;
   PImage article;
-  boolean move;
+  boolean move = true;
   int pos = 0;
+  int scrollHeight;
+  int scrollMax;
   
   public ArticlePrinter(int wWidth, int wHeight, String rubrik) {
     this.w = wWidth;
     this.h = wHeight;
     this.rubrik = rubrik.toLowerCase();
     article = loadImage(rubrik + ".png");
+    if (article.height <= h) {
+      move = false;
+    } else {
+      scrollHeight = h / (article.height / h);
+      scrollMax = article.height - h;
+    }
   }
   
   void draw(PGraphics g) {
     this.g = g;
-    
     g.background(255);
     g.fill(255);
-    g.image(article.get(0,pos, w, h), 10, 10);
-    println("draw: " + pos);
+    g.image(article.get(0, pos, w, h), 0, 0);
+    if (move) {
+      drawScrollPosition(pos);
+    }
+  }
+  
+  void drawScrollPosition(int pos) {
+    float scrollPos = 0;
+    if (pos > 0) {
+      float percent = (pos * 100) / article.height;
+      scrollPos = (percent * h) / 100;
+    }
+    g.fill(color(195, 211, 228));
+    g.rect(780, 0, 20, h);
+    g.fill(0);
+    g.rect(783, scrollPos, 14, scrollHeight);
   }
   
   void up() {
-    pos -= 200;
-    if(pos < 0)
-      pos = 0;
-    println(pos);
-    g.image(article.get(0,pos, w, h), 10, 10);
+    if (move) {
+      pos -= 400;
+      if(pos < 0)
+        pos = 0;
+      g.image(article.get(0, pos, w, h), 0, 0);
+      drawScrollPosition(pos);
+    }
   }
   
   void down() {
-    pos += 200;
-    if (pos > article.width +h)
-      pos = article.width +h ;
-    //println(pos);
-    //g.image(article.get(0,pos, w, h), 10, 10);
+    if (move) {
+      pos += 400;
+      if (pos >= scrollMax)
+        pos = scrollMax;
+      g.image(article.get(0, pos, w, h), 0, 0);
+      drawScrollPosition(pos);
+    }
   }  
 }
