@@ -107,7 +107,7 @@ class ScreensManager {
             currentArticle = 1; //set first article as the displayed one (of the category POLITIQUE)
             currentScreen = "ARTICLES";
             window.getArticle().setRubrik(currentCategory);
-            window.setState(3);
+            window.setState(2);
             break;
         }
       }  

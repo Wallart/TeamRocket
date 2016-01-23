@@ -26,7 +26,7 @@ class ArticlePrinter {
   }
   
   void setRubrik(String rubrik) {
-    this.rubrik = rubrik.toLowerCase();
+    rubrik = rubrik.toLowerCase();
     article = loadImage(rubrik + ".png");
     if (article.height <= h) {
       move = false;

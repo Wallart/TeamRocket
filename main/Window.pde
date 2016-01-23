@@ -4,7 +4,7 @@ class Window extends PApplet {
   
   CategoryManager categories = new CategoryManager();
   Presentation presentation = new Presentation(800, 800);
-  ArticlePrinter article;
+  ArticlePrinter article = new ArticlePrinter(800, 800);
   
   int state = 0;
   
