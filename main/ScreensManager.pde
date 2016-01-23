@@ -20,7 +20,6 @@ class ScreensManager {
     String currentScreen;
     String currentCategory;
     int currentArticle;
-    int TOTAL_NB_ARTICLES = 5;
     
    public ScreensManager(){
       currentScreen = "MAIN_SCREEN";
@@ -56,14 +55,12 @@ class ScreensManager {
         case "ARTICLES":      
               switch(movementDetected) {
                 case UP_MOVEMENT:
-                      currentArticle = (currentArticle - 1) % TOTAL_NB_ARTICLES;
-                      //Display the article
+                        //Scroll Up
                       
                 break;
                 
                 case DOWN_MOVEMENT:
-                      currentArticle = (currentArticle + 1) % TOTAL_NB_ARTICLES;
-                      //Display the article
+                      //Scroll down
                       
                 break;
                 
