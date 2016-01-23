@@ -14,12 +14,13 @@ int T_HEIGHT = 500;
 
 MovementDetector detector;
 Window window;
+ScreensManager manager;
 String[] args = {"Interface"};
 
 void setup() {
   detector = new MovementDetector(this, T_WIDTH, T_HEIGHT);
   window = new Window(W_WIDTH, W_HEIGHT);
-  
+  manager = new ScreensManager();
   PApplet.runSketch(args, window);
 }
 
@@ -31,4 +32,9 @@ void draw() {
   
   background(255);
   detector.draw();
+}
+
+void foo(int movement) {
+  manager.manageScreens(movement);
+  System.out.println(manager.currentScreen + "  "+ manager.currentCategory + "  "+ manager.currentArticle);
 }
