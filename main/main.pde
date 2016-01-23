@@ -6,14 +6,15 @@ import javax.swing.*;
 
 import java.util.List;
 
-int W_WIDTH = 1000;
-int W_HEIGHT = 500;
+int W_WIDTH = 800;
+int W_HEIGHT = 800;
 
 int T_WIDTH = 500;
 int T_HEIGHT = 500;
 
 MovementDetector detector;
 Window window;
+
 String[] args = {"Interface"};
 
 void setup() {
@@ -29,6 +30,7 @@ void settings() {
 
 void draw() {
   background(255);
+  fill(0);
   detector.draw();
   window.draw();
 }
