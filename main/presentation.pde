@@ -4,6 +4,7 @@ public class Presentation {
   int selected = 1;
   color blue = color(25, 25, 112);
   color black = color(0, 0, 0);
+  color white = color(255);
   int width;
   int height;
   PGraphics g;
@@ -14,9 +15,9 @@ public class Presentation {
     f = createFont("Arial",35,true); 
   }
 
-  void drawRect(int i, color c) {
+  void drawRect(int i, color c, int size) {
     int x = 275 * i - 250; 
-    drawRect(x,450, 200, 200, "IMAGE", "TUTO", c);
+    drawRect(x,450, 200, 200, "IMAGE", "TUTO", c, size);
   }
 
   void draw(PGraphics g) {
@@ -33,19 +34,23 @@ public class Presentation {
     g.text("DE LA TÊTE", width/2,160); 
     g.text("POUR MASQUER LE TUTORIAL", width/2,200); 
   
-    drawRect(selected, blue);
-    drawRect(2, black);
-    drawRect(3, black);
+    drawRect(1, blue, 5);
+    drawRect(2, black, 2);
+    drawRect(3, black, 2);
 
   }
 
   void setSelected(int i) {
-    drawRect(i, blue);
-    drawRect((i+1) % 3, black);
-    drawRect((i+2) % 3, black);
+    drawRect(i, blue, 5);
+    drawRect(((i+1) % 3), white, 5);
+    drawRect(((i+2) % 3), white, 5);
+    
+    drawRect(((i+1) % 3), black, 2);
+    drawRect(((i+2) % 3), black, 2);
   }
 
-  void drawRect(int x, int y, int w, int h, String l1, String l2, color c) {
+  void drawRect(int x, int y, int w, int h, String l1, String l2, color c, int size) {
+    g.strokeWeight(size);
     g.stroke(c);
     g.line(x,y,x,y + h);
     g.line(x,y,x + w,y);
@@ -61,6 +66,7 @@ public class Presentation {
   }
 
   void drawArrow(int cx, int cy, int len, float angle){
+    g.strokeWeight(1);
     g.pushMatrix();
     g.translate(cx, cy);
     g.rotate(radians(angle));
