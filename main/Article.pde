@@ -10,17 +10,9 @@ class ArticlePrinter {
   int scrollHeight;
   int scrollMax;
   
-  public ArticlePrinter(int wWidth, int wHeight, String rubrik) {
+  public ArticlePrinter(int wWidth, int wHeight) {
     this.w = wWidth;
     this.h = wHeight;
-    this.rubrik = rubrik.toLowerCase();
-    article = loadImage(rubrik + ".png");
-    if (article.height <= h) {
-      move = false;
-    } else {
-      scrollHeight = h / (article.height / h);
-      scrollMax = article.height - h;
-    }
   }
   
   void draw(PGraphics g) {
@@ -30,6 +22,17 @@ class ArticlePrinter {
     g.image(article.get(0, pos, w, h), 0, 0);
     if (move) {
       drawScrollPosition(pos);
+    }
+  }
+  
+  void setRubrik(String rubrik) {
+    this.rubrik = rubrik.toLowerCase();
+    article = loadImage(rubrik + ".png");
+    if (article.height <= h) {
+      move = false;
+    } else {
+      scrollHeight = h / (article.height / h);
+      scrollMax = article.height - h;
     }
   }
   
@@ -50,8 +53,6 @@ class ArticlePrinter {
       pos -= 400;
       if(pos < 0)
         pos = 0;
-      g.image(article.get(0, pos, w, h), 0, 0);
-      drawScrollPosition(pos);
     }
   }
   
@@ -60,8 +61,6 @@ class ArticlePrinter {
       pos += 400;
       if (pos >= scrollMax)
         pos = scrollMax;
-      g.image(article.get(0, pos, w, h), 0, 0);
-      drawScrollPosition(pos);
     }
   }  
 }
