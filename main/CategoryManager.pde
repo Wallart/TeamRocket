@@ -45,8 +45,16 @@ class CategoryManager {
     g.line(x,y+h,x+w,y+h);
   
     int textX = 150;
-    g.text(l1, x + textX, y + 100); 
-    g.text(l2, x + textX, y + 140);
+   
+    try {
+      g.text(l1, x + textX, y + 100); 
+      g.text(l2, x + textX, y + 140);
+    }
+    catch(Exception e){
+      //Crashes randomly when using Kinect sensor or mouse events
+      //So we have to catch the exception
+      System.out.println(l2);
+    }
   }
   
   void drawRect(int i, color c) {
@@ -54,8 +62,6 @@ class CategoryManager {
     String prefix = "CATEGORIE";
     String suffix = "";
     int x = 80;
-    
-    
     
     if(i > 3){
       suffix = names[1][(i-1)%3];
@@ -73,15 +79,16 @@ class CategoryManager {
   
   void setSelected(int i) {
     currentState = i;
-    drawRect(1, blue);
-    drawRect(2, blue);
-    drawRect(3, blue);
+    drawRect(1, black);
+    drawRect(2, black);
+    drawRect(3, black);
     
-    drawRect(4, blue);
-    drawRect(5, blue);
-    drawRect(6, blue);
+    drawRect(4, black);
+    drawRect(5, black);
+    drawRect(6, black);
     
-    drawRect(i, red);   
+    drawRect(i, red);
+    System.out.println("selected "+i);
   }
   
   void left() {

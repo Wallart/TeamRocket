@@ -37,5 +37,5 @@ void draw() {
 }
 void transmitMovement(int movement) {
   manager.manageScreens(movement);
-  System.out.println(manager.currentScreen + "  "+ manager.currentCategory + "  "+ manager.currentArticle);
+  //System.out.println(manager.currentScreen + "  "+ manager.currentCategory + "  "+ manager.currentArticle);
 }

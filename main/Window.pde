@@ -2,7 +2,7 @@ class Window extends PApplet {
   int width;
   int height;
   
-  CategoryManager category = new CategoryManager();
+  CategoryManager categories = new CategoryManager();
   
   Window(int w, int h) {
     width = w;
@@ -15,6 +15,14 @@ class Window extends PApplet {
  
   void draw() {
     background(255);
-    category.draw(g);
+    drawCategories();
+  }
+  
+  void drawCategories() {
+    categories.draw(this.g);
+  }
+  
+  CategoryManager getCategories() {
+    return this.categories;
   }
 }
